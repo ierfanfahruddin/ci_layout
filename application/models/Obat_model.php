@@ -6,11 +6,11 @@ class Obat_model extends CI_Model
 
   public function get_obat_list($cari, $limit, $offset)
   {
-    $this->db->select('*');
-    $this->db->from('obat');
-    $this->db->join('jenis_obat', 'obat.id_jenis_obat = jenis_obat.id', 'left');
+    $this->db->select('o.id, o.nama_obat, o.satuan, o.harga, o.stok, o.tgl_exp, j.nama_jenis_obat');
+    $this->db->from('obat o');
+    $this->db->join('jenis_obat j', 'o.id_jenis_obat = j.id', 'left');
     $this->db->like('nama_obat', $cari);
-    $this->db->order_by('obat.id', 'ASC');
+    $this->db->order_by('o.id', 'ASC');
     $this->db->limit($limit, $offset);
     return $this->db->get()->result_array();
   }
