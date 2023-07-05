@@ -9,14 +9,15 @@
                     <div class="card">
                         <div class="card-header">
                             <!-- <h3 class="card-title" style="margin-bottom:-20px;">Responsive Hover Table</h3> -->
-                            <a href="javascript:void(0)" onclick="create()" class="btn btn-success mx-3">Tambah</a>
+                            <a href="javascript:void(0)" onclick="create()"
+                                class="btn btn-sm btn-success mx-3">Tambah</a>
                             <div class="card-tools">
                                 <div class="input-group input-group-sm" style="width: 150px;">
                                     <input type="text" name="table_search" class="form-control float-right"
                                         placeholder="Search">
 
                                     <div class="input-group-append">
-                                        <button type="submit" class="btn btn-default">
+                                        <button type="submit" class="btn btn-sm btn-default">
                                             <i class="fas fa-search"></i>
                                         </button>
                                     </div>
@@ -56,10 +57,10 @@
                                         <td><?= $row['nama_jenis_obat'] ?></td>
                                         <td>
                                             <a href="#" onclick="edit('<?= $row['id'] ?>')"
-                                                class="btn btn-info">Edit</a>
+                                                class="btn btn-sm btn-info">Edit</a>
                                             <a onclick="return confirm('apa anda yakin')"
                                                 href="<?= $this->config->base_url('index.php/jenisobat/delete/') . $row['id'] ?>"
-                                                class="btn btn-danger">Hapus</a>
+                                                class="btn btn-sm btn-danger">Hapus</a>
                                         </td>
                                     </tr>
                                     <?php endforeach;   ?>
@@ -82,13 +83,13 @@
             <div class="modal-header">
                 <h5 class="modal-title" id="judul"></h5>
                 <i class="bi bi-x-lg" style="font-size: 20px;" data-dismiss="modal" aria-label="Close"></i>
-                <!-- <button type="button" class="btn-close"></button> -->
+                <!-- <button type="button" class="btn btn-sm-close"></button> -->
             </div>
             <div class="modal-body">
                 <div id="page"></div>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-sm btn-secondary" data-dismiss="modal">Close</button>
             </div>
         </div>
     </div>

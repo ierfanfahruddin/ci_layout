@@ -122,9 +122,16 @@
         </div>
         <div class="text-center mt-4 name">
             Twitter
+        </div><?php if (!empty($_SESSION['errors'])) : ?>
+        <div class="alert alert-danger mt-3" role="alert">
+            <?= $_SESSION['errors']; ?>
         </div>
-        <?= @$_SESSION['errors']; ?>
-        <?= @$_SESSION['success_register']; ?>
+        <?php endif; ?>
+        <?php if (!empty($_SESSION['success_register'])) : ?>
+        <div class="alert alert-success mt-3" role="alert">
+            <?= $_SESSION['success_register']; ?>
+        </div>
+        <?php endif; ?>
         <?php echo validation_errors(); ?>
         <?php $attributes = array('class' => 'p-3 m-3', 'id' => 'myform');
         echo form_open('login/storelogin', $attributes); ?>
