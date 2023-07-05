@@ -45,4 +45,12 @@ class Obat_model extends CI_Model
     $this->db->where('id', $id);
     $this->db->delete('obat');
   }
+  public function get_data_obat()
+  {
+    $this->db->select('o.id, o.nama_obat, o.satuan, o.harga, o.stok, o.tgl_exp, j.nama_jenis_obat');
+    $this->db->from('obat o');
+    $this->db->join('jenis_obat j', 'o.id_jenis_obat = j.id');
+    $this->db->order_by('o.tgl_exp', 'ASC');
+    return $this->db->get()->result_array();
+  }
 }
