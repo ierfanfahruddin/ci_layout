@@ -18,7 +18,6 @@ class Obat extends CI_Controller
 
   public function index()
   {
-
     $cari = $this->input->get('cari');
     $base_url = base_url('index.php/obat/index');
     $total_rows = $this->Obat_model->get_obat_count($cari);
@@ -29,10 +28,20 @@ class Obat extends CI_Controller
     // Ambil data obat dengan pagination
     $data['obat'] = $this->Obat_model->get_obat_list($cari, $per_page, $this->uri->segment(3));
 
-    $this->load->view('layout/menu', $data);
+    $this->load->view('layout/menu');
     $this->load->view('pages/obat/index', $data);
-    $this->load->view('layout/footer', $data);
+    $this->load->view('layout/footer');
   }
+
+  public function get_obat_list()
+  {
+    $postData = $this->input->post();
+
+    $data = $this->Obat_model->get_data_ajax($postData);
+
+    echo json_encode($data);
+  }
+
 
   public function tambah()
   {
